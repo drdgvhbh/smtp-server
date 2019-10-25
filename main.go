@@ -12,13 +12,13 @@ import (
 const envFileName = ".env.toml"
 
 func main() {
-	tomlData, err := ioutil.ReadFile(".env.toml")
+	tomlData, err := ioutil.ReadFile(envFileName)
 	if err != nil {
-		log.Fatalln(err, "failed to read %s", ".env.toml")
+		log.Fatalln( err, fmt.Sprintf("failed to read %s", envFileName))
 	}
 	var conf pkg.Config
 	if _, err := toml.Decode(string(tomlData), &conf); err != nil {
-		log.Fatalln(err, "failed to parse %s", envFileName)
+		log.Fatalln(err, fmt.Sprintf("failed to parse %s", envFileName))
 		// handle error
 	}
 
