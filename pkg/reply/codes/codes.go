@@ -1,4 +1,4 @@
-package reply
+package codes
 
 type ResponseCode uint
 
